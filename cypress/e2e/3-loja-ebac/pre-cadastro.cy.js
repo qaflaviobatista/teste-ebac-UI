@@ -34,5 +34,11 @@ describe('funcionalidade de cadastro', () => {
         cy.get('.woocommerce-error > li').should('contain','Erro: Uma conta já está registrada com seu endereço de e-mail. Faça login.')
 })
 
+    it('tentativa de cadastro com e-mail de tipo inválido', () => {
+        cy.get('#reg_email').type('flavio.teste$teste.com.br')
+        cy.get('#reg_password').type('teste@123')
+        cy.get(':nth-child(4) > .button').click()
+        //cy.get(TAG ATRIBUTO DO TOAST EM JS).should('contain','MENSAGEM DE ERRO DO TOAST')    
+    });
 
 })

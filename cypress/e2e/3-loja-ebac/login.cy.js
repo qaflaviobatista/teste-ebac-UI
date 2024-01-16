@@ -3,9 +3,14 @@
 describe('funcionalidade de login', () => {
 
     beforeEach(() => {
-        // Código a ser executado uma vez antes de todos os testes
         cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
+    
     })
+
+    afterEach(() => {
+        cy.screenshot();
+   
+    });
 
     it('deve fazer login com sucesso', () => {
 
