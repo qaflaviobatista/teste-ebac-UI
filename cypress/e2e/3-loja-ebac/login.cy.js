@@ -21,7 +21,7 @@ describe('funcionalidade de login', () => {
 
     })
 
-    it('login com e-mail válido e senha inválida', () => {
+    it('login com e-mail inválido e senha válida', () => {
 
         cy.get('#username').type('flavio.teste2@teste.com.br')
         cy.get('#password').type('teste@123')
@@ -30,7 +30,7 @@ describe('funcionalidade de login', () => {
 
     })
 
-    it('login com e-mail inválido e senha válida', () => {
+    it('login com e-mail válido e senha inválida', () => {
 
         cy.get('#username').type('flavio.teste@teste.com.br')
         cy.get('#password').type('testes@123')
