@@ -8,7 +8,28 @@ describe('Funcionalidade: Produtos', () => {
 
     it('Deve selecionar um produto da lista', () => {
         cy.get('.block-inner').eq(2).click()
-        cy.get('#lab-title-description > a').should('contain', 'Descrição')
+        cy.get('#tab-title-description > a').should('contain', 'Descrição')
+
     });
 
+    it.only('Deve configurar um produto com tamanho, cor e quantidade', () => {
+        //seleciona o terceiro produto da lista 
+        cy.get('.block-inner').eq(2).click()
+        //seleciona um tamanho
+        cy.get(':nth-child(1) > .value > .variable-items-wrapper >').eq(0).click()
+        //seleciona uma cor     
+        cy.get(':nth-child(2) > .value > .variable-items-wrapper >').eq(0).click() //tive que manipular o seletor, inserindo um ">" ao final para conseguir selecionar os filhos
+        //seleciona a quantidade
+        cy.get('.plus').click().click()
+        //clicar em comprar para adicionar ao carrinho
+        cy.get('.single_add_to_cart_button').click()
+        cy.get('.woocommerce-message > .button').should('contain','Ver carrinho')
+        
+
+
+        //cy.get('.woocommerce-message > .button').as('carrinhoButton');
+        //cy.get('@carrinhoButton').click();
+        //cy.get('.page-title')
+
+    });
 });
