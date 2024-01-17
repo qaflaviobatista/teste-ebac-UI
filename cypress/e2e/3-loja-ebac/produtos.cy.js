@@ -6,13 +6,18 @@ describe('Funcionalidade: Produtos', () => {
         cy.visit('http://lojaebac.ebaconline.art.br/produtos/')
     })
 
+    afterEach(() => {
+        cy.screenshot();
+
+    });
+
     it('Deve selecionar um produto da lista', () => {
         cy.get('.block-inner').eq(2).click()
         cy.get('#tab-title-description > a').should('contain', 'Descrição')
 
     });
 
-    it.only('Deve configurar um produto com tamanho, cor e quantidade', () => {
+    it('Deve configurar um produto com tamanho, cor e quantidade e adicionar ao carrinho de compras', () => {
         //seleciona o terceiro produto da lista 
         cy.get('.block-inner').eq(2).click()
         //seleciona um tamanho
@@ -23,13 +28,7 @@ describe('Funcionalidade: Produtos', () => {
         cy.get('.plus').click().click()
         //clicar em comprar para adicionar ao carrinho
         cy.get('.single_add_to_cart_button').click()
-        cy.get('.woocommerce-message > .button').should('contain','Ver carrinho')
-        
-
-
-        //cy.get('.woocommerce-message > .button').as('carrinhoButton');
-        //cy.get('@carrinhoButton').click();
-        //cy.get('.page-title')
+        cy.get('.woocommerce-message > .button').should('contain', 'Ver carrinho')
 
     });
 });
