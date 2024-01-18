@@ -1,17 +1,17 @@
 /// <reference types="cypress"/>
 
-describe('funcionalidade de login', () => {
-    const nomeDoSubdiretorio = 'login'; // Pode ser alterado manualmente
-    const caminhoDoDiretorio = `C:\\repositorio\\teste-ebac-UI\\cypress\\screenshots\\${nomeDoSubdiretorio}`;
+const perfil = require('../../fixtures/perfil.json')
 
+describe('funcionalidade de login', () => {
+    
     beforeEach(() => {
-        cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
+        cy.visit('minha-conta')
     })
 
-    afterEach(() => {
-        cy.screenshot()
+    //afterEach(() => {
+      //  cy.screenshot()
 
-    });
+   // });
 
     it('deve fazer login com sucesso', () => {
         cy.get('#username').type('flavio.teste@teste.com.br')
@@ -33,4 +33,24 @@ describe('funcionalidade de login', () => {
         cy.get('.woocommerce-form > .button').click()
         cy.get('.woocommerce-error > li').should('contain', 'Erro: A senha fornecida para o e-mail flavio.teste@teste.com.br está incorreta. Perdeu a senha?')
     })
+
+    it('Deve fazer login com massa de dados', () => {
+
+        cy.get('#username').type(perfil.emailExistente)
+        cy.get('#password').type(perfil.senhaValida)
+        cy.get('.woocommerce-form > .button').click()
+        cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá, flavio.teste (não é flavio.teste? Sair)')
+        
+    });
+
+    it.only('Deve fazer login usando fixture', () => {
+
+        cy.fixture('perfil').then(dados => {
+            cy.get('#username').type(dados.emailExistente, {log:false})
+            cy.get('#password').type(dados.senhaValida, {log:false})
+            cy.get('.woocommerce-form > .button').click()
+            cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain', 'Olá, flavio.teste (não é flavio.teste? Sair)')
+        })
+    });
+ 
 })

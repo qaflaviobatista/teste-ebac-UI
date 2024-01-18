@@ -1,0 +1,7 @@
+{
+    "emailExistente": "flavio.teste@teste.com.br",
+    "emailInexistente": "flavio.teste2@teste.com.br",
+    "emailInvalido": "flavio.teste.teste.com.br",
+    "senhaValida": "teste@123",
+    "senhaInvalida": "testes@123"
+}

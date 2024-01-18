@@ -5,13 +5,13 @@ import { should } from 'chai';
 describe('funcionalidade de cadastro', () => {
 
     beforeEach(() => {
-        cy.visit('http://lojaebac.ebaconline.art.br/minha-conta/')
+        cy.visit('minha-conta')
     })
 
-    afterEach(() => {
-        cy.screenshot();
+    //afterEach(() => {
+       // cy.screenshot();
 
-    });
+    //});
 
     // Caminho feliz
     it('deve fazer pré-cadastro com sucesso', () => {
