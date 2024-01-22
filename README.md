@@ -1,7 +1,7 @@
 # teste-ebac-UI
 mód. 11 modificando para testar conectividade
 
-Módulo 11:
+Módulo 11 (finalizado):
 
 Aula 1: https://youtu.be/iEu5KZdlAEQ
 Aula 2: https://youtu.be/jfJ-pBoIPAg 
@@ -11,7 +11,7 @@ Aula 5: https://youtu.be/JC9DfvOuqJg
 
 
 
-Módulo 12:
+Módulo 12 (em processo):
 
 Aula 6: https://youtu.be/i3usm8R5iu0
 Aula 7: https://youtu.be/KTv7dIK7QaY
